@@ -32,7 +32,7 @@ body {
   position: fixed;
   background-color: #21205d;
   color: white;
-  width: 350px;
+  width: 330px;
   min-height: 100vh;
   text-align: center;
   padding: 20px;
@@ -84,7 +84,7 @@ body {
 }
 
 .main-container {
-  margin-left: 350px;
+  margin-left: 330px;
   background-color: #eeeeee;
   min-height: 100vh;
 }

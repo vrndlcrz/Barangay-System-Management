@@ -552,6 +552,7 @@ body {
   }
 
   .sidebar {
+    width: 310px;
     left: -350px;
     transition: left 0.3s ease;
   }
@@ -564,7 +565,7 @@ body {
 @media (max-width: 768px) {
   .burger-menu {
     width: 50px;
-    font-size: 2em;
+    font-size: 1.7em;
     display: block;
     text-align: end;
     top: 2%;

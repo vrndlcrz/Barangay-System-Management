@@ -304,12 +304,12 @@ body {
 
 @media (max-width: 1024px) {
   .sidebar {
-    width: 350px;
+    width: 340px;
     min-width: 260px;
   }
 
   .content {
-    margin-left: 348px;
+    margin-left: 340px;
     padding: 20px 24px;
   }
 
@@ -339,8 +339,12 @@ body {
     top: 0;
     height: 100vh;
     transform: translateX(-100%);
-    width: 280px;
+    width: 320px;
     min-width: 280px;
+  }
+
+  .sidebar h2 {
+    font-size: 14.4px;
   }
 
   .sidebar.active {
@@ -358,6 +362,7 @@ body {
   .burger-menu {
     display: flex;
     width: 50px;
+    font-size: 28px;
     height: 50px;
     position: absolute;
     left: 91%;
@@ -408,8 +413,12 @@ body {
 
 @media (max-width: 480px) {
   .sidebar {
-    width: 260px;
+    width: 300px;
     min-width: 260px;
+  }
+
+  .sidebar h2 {
+    font-size: 14px;
   }
 
   .content {
@@ -458,7 +467,7 @@ body {
   }
 
   .burger-menu {
-    left: 87%;
+    left: 85%;
   }
 
   .topbar {
@@ -484,7 +493,7 @@ body {
   .burger-menu {
     font-size: 1.6em;
     padding: 8px 12px;
-    right: 4%;
+    right: 7%;
   }
 
   .content {

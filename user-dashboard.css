@@ -378,11 +378,11 @@ body {
 
 @media (max-width: 1024px) {
   .sidebar {
-    width: 300px;
+    width: 310px;
   }
 
   .main-content {
-    margin-left: 300px;
+    margin-left: 310px;
     width: calc(100% - 280px);
   }
 
@@ -414,7 +414,7 @@ body {
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 300px;
+    width: 32 0px;
     transform: translateX(-100%);
     background-color: #21205d;
   }

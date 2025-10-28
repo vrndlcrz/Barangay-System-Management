@@ -323,6 +323,7 @@ body {
     position: absolute;
     display: flex;
     width: 40px;
+    font-size: 1.7em;
     left: 93%;
   }
 

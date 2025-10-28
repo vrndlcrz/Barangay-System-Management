@@ -281,12 +281,13 @@ html {
 
   .sidebar.active {
     left: 0;
+    width: 290px;
   }
 
   .burger-menu {
     display: block;
     position: fixed;
-    font-size: 2.2em;
+    font-size: 28px;
     left: 0;
     margin-left: 90%;
   }

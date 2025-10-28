@@ -395,6 +395,10 @@ html {
     grid-template-columns: 1fr;
   }
 
+  .sidebar {
+    width: 290px;
+  }
+
   .header-right {
     display: flex;
     position: absolute;
@@ -404,9 +408,13 @@ html {
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 300px;
+    width: 240px;
     transform: translateX(-100%);
     background-color: #21205d;
+  }
+
+  .sidebar h1 {
+    font-size: 14px;
   }
 
   .sidebar.active {
@@ -414,6 +422,7 @@ html {
   }
 
   .burger-menu {
+    font-size: 28px;
     display: block;
   }
 
@@ -451,8 +460,13 @@ html {
     font-size: 1.2em;
   }
 
+  .burger-menu {
+    left: 86%;
+    font-size: 28px;
+  }
+
   .sidebar {
-    width: 270px;
+    width: 250px;
   }
 
   .header-left p {
