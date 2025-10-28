@@ -42,11 +42,12 @@ body {
 
 .sidebar h1 {
   padding-bottom: 5px;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .barangay-logo {
-  width: 40%;
+  width: 80px;
+  margin-top: 10px;
   padding-bottom: 20px;
 }
 
@@ -111,6 +112,7 @@ body {
 .header-right {
   display: flex;
   align-items: center;
+  justify-content: end;
   gap: 20px;
 }
 
@@ -133,7 +135,7 @@ body {
 }
 
 .logout-logo img {
-  width: 55px;
+  width: 45px;
   transition: 0.3s ease-in-out;
 }
 
@@ -474,8 +476,8 @@ tbody tr:hover {
 /* Responsive Design */
 @media (max-width: 1023px) {
   .sidebar {
-    width: 250px;
-    left: -250px;
+    width: 300px;
+    left: -300px;
   }
 
   .main-container {
@@ -496,7 +498,8 @@ tbody tr:hover {
     position: fixed;
     left: -310px;
     transition: left 0.3s ease;
-    width: 310px;
+    width: 300px;
+    height: 110vh;
   }
 
   .sidebar.active {
@@ -553,7 +556,7 @@ tbody tr:hover {
 
   @media (max-width: 480px) {
     .sidebar {
-      width: 310px;
+      width: 300px;
     }
 
     .header {

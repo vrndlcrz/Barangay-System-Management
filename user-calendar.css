@@ -43,7 +43,7 @@ body {
 
 .sidebar h1 {
   width: 100%;
-  font-size: 0.9em;
+  font-size: 16px;
   margin-bottom: 30px;
 }
 
@@ -153,23 +153,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.add-event-btn {
-  background-color: #f5fd12;
-  color: #21205d;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.add-event-btn:hover {
-  background-color: #e0ed00;
-  transform: scale(1.05);
 }
 
 .calendar-header {

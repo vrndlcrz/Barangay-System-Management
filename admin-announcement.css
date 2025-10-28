@@ -27,7 +27,7 @@ body {
   position: fixed;
   background-color: #21205d;
   color: white;
-  width: 350px;
+  width: 330px;
   min-height: 100vh;
   text-align: center;
   padding: 20px;
@@ -36,12 +36,13 @@ body {
 }
 
 .barangay-logo {
-  width: 40%;
+  width: 80px;
+  margin-top: 10px;
   padding-bottom: 20px;
 }
 
 .sidebar h1 {
-  font-size: 1em;
+  font-size: 0.9em;
   margin-bottom: 30px;
 }
 
@@ -94,7 +95,7 @@ body {
 }
 
 .logout-logo {
-  width: 50px;
+  width: 45px;
   border-radius: 50%;
   display: flex;
   align-items: center;

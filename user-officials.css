@@ -176,26 +176,6 @@ html {
   padding: 0px 30px 0px 30px;
 }
 
-.officials-grid button {
-  grid-column: 1 / -1;
-  position: relative;
-  left: 86.5%;
-  width: 150px;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0);
-  border: 2px solid #21205d;
-  color: #21205d;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.officials-grid button:hover {
-  background: #21205d;
-  color: white;
-}
-
 .official-card {
   background: #d9d9d9;
   border-radius: 10px;
@@ -236,10 +216,6 @@ html {
   .right-container {
     margin-left: 360px;
     margin-right: 45px;
-  }
-
-  .officials-grid button {
-    left: 84.8%;
   }
 
   .officials-grid {
@@ -284,10 +260,6 @@ html {
 
   .header-right {
     right: 65px;
-  }
-
-  .officials-grid button {
-    left: 77.5%;
   }
 
   .officials-grid {
@@ -379,11 +351,6 @@ html {
     width: 90vw;
     padding: 15px;
   }
-
-  .officials-grid button {
-    grid-column: 1 / -1;
-    left: 78.2%;
-  }
 }
 
 /* BREAKPOINT 4: MOBILE (480px to 767px) */
@@ -454,14 +421,6 @@ html {
   .official-image {
     height: 150px;
     margin-bottom: 10px;
-  }
-
-  .officials-grid button {
-    grid-column: 1 / -1;
-    left: 71.2%;
-    width: 130px;
-    padding: 8px 15px;
-    font-size: 13px;
   }
 }
 
@@ -553,13 +512,5 @@ html {
 
   .official-info p {
     font-size: 12px;
-  }
-
-  .officials-grid button {
-    grid-column: 1 / -1;
-    left: 72%;
-    width: 100px;
-    padding: 6px 10px;
-    font-size: 10px;
   }
 }

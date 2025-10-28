@@ -12,6 +12,31 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
+const burgerMenu = document.getElementById("burgerMenu");
+const sidebar = document.querySelector(".sidebar");
+
+burgerMenu.addEventListener("click", function () {
+  sidebar.classList.toggle("active");
+});
+
+// Close sidebar when clicking on a link
+const sidebarLinks = document.querySelectorAll(".sidebar li a");
+sidebarLinks.forEach((link) => {
+  link.addEventListener("click", function () {
+    sidebar.classList.remove("active");
+  });
+});
+
+// Close sidebar when clicking outside
+document.addEventListener("click", function (event) {
+  if (
+    !event.target.closest(".sidebar") &&
+    !event.target.closest(".burger-menu")
+  ) {
+    sidebar.classList.remove("active");
+  }
+});
+
 function toggleDropdown(dropdownId) {
   const dropdown = document.getElementById(dropdownId);
   const dropdownBox = dropdown.previousElementSibling;

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="request.css" />
-    <link rel="stylesheet" href="preloader/preloader.css" />
+    <link rel="stylesheet" href="user-request.css" />
+    <link rel="stylesheet" href="preloader.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,6 +20,7 @@
     <p id="current-time"></p>
 
     <div class="dashboard-container">
+      <button class="burger-menu" id="burgerMenu">☰</button>
       
       <!-- Sidebar -->
       <div class="sidebar">
@@ -34,11 +35,11 @@
             <li>
               <a href="user-dashboard.html" class="dashboard-link">Dashboard</a>
             </li>
-            <li><a href="user-certificate.html" class="active">Request</a></li>
+            <li><a href="user-request.html" class="active">Document Requests</a></li>
             <li><a href="user-announcement.html">Announcement</a></li>
-            <li><a href="user-officials.html">Officials</a></li>
             <li><a href="user-calendar.html">Calendar</a></li>
-            <li><a href="user-clearance.html">Profile</a></li>
+            <li><a href="user-profile.html">Profile</a></li>
+            <li><a href="user-officials.html">Officials</a></li>
     
           </ul>
         </nav>
@@ -62,9 +63,9 @@
         </div>
         <div class="header-right">
           <div class="clock" id="clock">12:00:00 AM</div>
-          <div class="logout-logo">
-            <img src="images/logout.png" alt="logout-logo" class="logout-logo"/>
-          </div>
+          <a href="index.html" class="logout-logo">
+            <img src="images/logout.png" alt="logout" class="logout-logo" />
+          </a>
         </div>
       </div>
 

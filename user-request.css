@@ -6,6 +6,7 @@
 html {
   background-color: #eeeeee;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .sidebar li a.active {
@@ -21,11 +22,15 @@ html {
   display: none;
   background: none;
   border: none;
-  color: white;
-  font-size: 24px;
+  color: #21205d;
+  font-size: 28px;
   cursor: pointer;
-  z-index: 1001;
-  padding: 10px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 101;
+  padding: 8px;
+  line-height: 1;
 }
 
 .sidebar {
@@ -38,6 +43,7 @@ html {
   padding: 20px;
   z-index: 1000;
   overflow-y: auto;
+  transition: 0.3s ease-in-out;
 }
 
 .sidebar h1 {
@@ -61,9 +67,10 @@ html {
   text-decoration: none;
   color: white;
   display: block;
-  padding: 10px 30px;
+  padding: 14px 30px;
   margin: 0px -20px;
   border-radius: 0;
+  gap: 8px;
   transition: 0.3s;
 }
 
@@ -73,13 +80,14 @@ html {
 }
 
 .barangay-logo {
-  width: 40%;
+  margin-top: 15px;
+  width: 80px;
   padding-bottom: 20px;
 }
 
 .right-content {
   background-color: #eeeeee;
-  margin-left: 340px;
+  margin: 0px 20px 0px 350px;
   flex: 1;
 }
 
@@ -93,7 +101,7 @@ html {
 }
 
 .logout-logo {
-  width: 50px;
+  width: 45px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -123,7 +131,7 @@ html {
   align-items: center;
   display: flex;
   width: 150px;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 10px;
 }
 
@@ -134,7 +142,9 @@ html {
 }
 
 .row.auto {
-  width: 100%;
+  display: flex;
+  position: absolute;
+  width: 100vw;
 }
 
 /* main content!! */
@@ -161,7 +171,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: end;
-  gap: 20px;
+  gap: 12px;
   margin-top: -20px;
 }
 
@@ -214,23 +224,24 @@ html {
 
 /* to box */
 .content-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-top: 20px;
   align-items: flex-start;
 }
 
 .left-column {
-  flex: 0 0 55%;
+  flex: 0 0 40%;
 }
 
 /* quick links */
 .right-column {
-  flex: 0 0 42%;
-  max-width: 42%;
+  flex: 0 0 56%;
 }
 
 .dropdown {
+  display: flex;
   background: #e0dddd;
   padding: 20px 25px;
   border-radius: 5px;
@@ -240,8 +251,7 @@ html {
   cursor: pointer;
   transition: all 0.3s;
   position: relative;
-
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .dropdown:hover .dropdowntitle {
   color: #f5fd12;
@@ -252,7 +262,8 @@ html {
 }
 
 .drop-down.icon {
-  float: right;
+  position: absolute;
+  right: 20px;
   transition: transform 0.3s;
   font-size: 14px;
 }
@@ -316,6 +327,9 @@ html {
 }
 
 .quick-links {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
   background: #e0dddd;
   padding: 20px 30px 30px 30px;
   border-radius: 8px;
@@ -374,4 +388,78 @@ html {
 
 .fa-arrow-pointer {
   margin-left: 5px;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .header-right {
+    display: flex;
+    position: absolute;
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 300px;
+    transform: translateX(-100%);
+    background-color: #21205d;
+  }
+
+  .sidebar.active {
+    transform: translateX();
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .right-content {
+    margin-left: 10px;
+  }
+
+  .header {
+    margin-top: 40px;
+  }
+
+  .content-container {
+    margin-top: 10px;
+  }
+
+  .header-right {
+    position: absolute;
+    top: 40px;
+    left: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .burger-menu {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 366px) {
+  .header h1 {
+    font-size: 1.2em;
+  }
+
+  .header-left p {
+    font-size: 0.7em;
+  }
+
+  .logout-logo {
+    width: 40px;
+  }
+
+  .dropdown {
+    margin-bottom: 1px;
+  }
 }
