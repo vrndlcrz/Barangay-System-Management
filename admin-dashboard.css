@@ -159,7 +159,7 @@ html {
   top: -3px;
   bottom: -3px;
   width: 8px;
-  background-color: #000000;
+  background-color: #001d39;
   border-radius: 10px 0 0 10px;
 }
 
@@ -175,6 +175,16 @@ html {
   font-size: 1.5em;
 }
 
+.charts-header {
+  position: relative;
+  color: white;
+  background-color: #21205d;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 15px 20px;
+  margin: 0;
+}
+
 .charts-container {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -185,21 +195,30 @@ html {
 
 .chart-widget {
   background-color: white;
-  padding: 20px;
+  padding: 0;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chart-widget > canvas {
+  flex: 1;
+  min-height: 0;
+  padding: 10px 20px 20px 20px;
 }
 
 .chart-widget:first-child {
   grid-row: 1 / 3;
-  min-height: 400px;
+  height: 500px;
 }
 
 .chart-widget:nth-child(2),
 .chart-widget:nth-child(3),
 .chart-widget:nth-child(4),
 .chart-widget:nth-child(5) {
-  min-height: 180px;
+  height: 240px;
 }
 
 /* BREAKPOINT 1: LARGE DESKTOP (1440px and above) */
@@ -265,11 +284,15 @@ html {
     padding: 15px;
   }
 
+  .chart-widget:first-child {
+    height: 470px;
+  }
+
   .chart-widget:nth-child(2),
   .chart-widget:nth-child(3),
   .chart-widget:nth-child(4),
   .chart-widget:nth-child(5) {
-    min-height: 200px;
+    height: 230px;
   }
 
   .sidebar li a {
@@ -363,7 +386,14 @@ html {
   .chart-widget:first-child {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
-    min-height: 300px;
+    height: 380px;
+  }
+
+  .chart-widget:nth-child(2),
+  .chart-widget:nth-child(3),
+  .chart-widget:nth-child(4),
+  .chart-widget:nth-child(5) {
+    height: 300px;
   }
 
   .sidebar ul li {
@@ -489,12 +519,12 @@ html {
   .chart-widget {
     grid-row: auto;
     grid-column: auto;
-    min-height: 250px;
+    height: 280px;
   }
 
   .chart-widget:first-child {
     grid-row: auto;
-    min-height: 250px;
+    height: 280px;
   }
 
   .sidebar h1 {
@@ -643,12 +673,12 @@ html {
   .chart-widget {
     grid-row: auto;
     grid-column: auto;
-    min-height: 250px;
+    height: 280px;
   }
 
   .chart-widget:first-child {
     grid-row: auto;
-    min-height: 250px;
+    height: 280px;
   }
 
   .sidebar h1 {

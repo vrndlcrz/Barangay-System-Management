@@ -93,11 +93,30 @@
         </div>
 
         <div class="charts-container">
-          <div class="chart-widget">Demographics</div>
-          <div class="chart-widget">Document Request</div>
-          <div class="chart-widget">Pending Applications</div>
-          <div class="chart-widget">Cancelled Request</div>
-          <div class="chart-widget">Completed Request</div>
+          <div class="chart-widget" id="residentsDemographics">
+            <div class="charts-header">Demographics</div>
+            <canvas id="demographicsChart"></canvas>
+          </div>
+
+          <div class="chart-widget" id="documentRequest">
+            <div class="charts-header">Document Requests</div>
+            <canvas id="documentChart"></canvas>
+          </div>
+
+          <div class="chart-widget" id="pendingApplication">
+            <div class="charts-header">Pending Applications</div>
+            <canvas id="pendingChart"></canvas>
+          </div>
+
+          <div class="chart-widget" id="cancelledRequest">
+            <div class="charts-header">Cancelled Request</div>
+            <canvas id="cancelledChart"></canvas>
+          </div>
+
+          <div class="chart-widget" id="completedRequest">
+            <div class="charts-header">Completed Request</div>
+            <canvas id="completedChart"></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -105,4 +124,7 @@
 
   <script src="preloader.js"></script>
   <script src="admin-dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <script src="admin-charts.js"></script>
 </html>
