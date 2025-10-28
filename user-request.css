@@ -410,7 +410,7 @@ html {
   }
 
   .sidebar.active {
-    transform: translateX();
+    transform: translateX(0);
   }
 
   .burger-menu {
@@ -449,6 +449,10 @@ html {
 @media (max-width: 366px) {
   .header h1 {
     font-size: 1.2em;
+  }
+
+  .sidebar {
+    width: 270px;
   }
 
   .header-left p {
