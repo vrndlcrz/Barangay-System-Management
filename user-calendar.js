@@ -1,27 +1,5 @@
 // Events storage
-let events = [
-  {
-    id: 1,
-    title: "Dog Vaccination",
-    date: "2025-01-01",
-    startTime: "08:00",
-    endTime: "10:00",
-  },
-  {
-    id: 2,
-    title: "Community Meeting",
-    date: "2025-01-05",
-    startTime: "14:00",
-    endTime: "16:00",
-  },
-  {
-    id: 3,
-    title: "Medical Mission",
-    date: "2025-01-12",
-    startTime: "09:00",
-    endTime: "15:00",
-  },
-];
+let events = [];
 
 // Clock
 function updateClock() {

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="user-announcement.css" />
     <link rel="stylesheet" href="preloader.css" />
     <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="logout-modal.css" />
   </head>
 
   <body>
@@ -42,7 +43,12 @@
           <div class="time-user">
             <span id="time"></span>
             <a href="index.html" class="logout-logo">
-              <img src="images/logout.png" alt="logout" class="logout-logo" />
+              <img
+                src="images/logout.png"
+                alt="logout"
+                class="logout-logo"
+                id="logoutBtn"
+              />
             </a>
           </div>
         </div>
@@ -55,6 +61,19 @@
           <!-- Announcements dynamically inserted here -->
         </section>
       </main>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="logout-modal">
+      <div class="logout-modal-content">
+        <div class="logout-modal-icon">⚠️</div>
+        <h2>Confirm Logout</h2>
+        <p>Are you sure you want to logout?</p>
+        <div class="logout-modal-buttons">
+          <button class="logout-btn-cancel" id="cancelLogout">No</button>
+          <button class="logout-btn-confirm" id="confirmLogout">Yes</button>
+        </div>
+      </div>
     </div>
 
     <!-- chagtbot -->
@@ -87,6 +106,7 @@
     <script src="user-announcement.js"></script>
     <script src="preloader.js"></script>
     <script src="chatbot.js"></script>
+    <script src="logout-modal.js"></script>
     <script></script>
   </body>
 </html>

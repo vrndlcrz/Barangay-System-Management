@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="logout-modal.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -53,7 +54,12 @@
           <div class="topbar-right">
             <div id="clock" class="clock">00:00:00 AM</div>
             <a href="index.html" class="logout-logo">
-              <img src="images/logout.png" alt="logout" class="logout-logo" />
+              <img
+                src="images/logout.png"
+                alt="logout"
+                class="logout-logo"
+                id="logoutBtn"
+              />
             </a>
           </div>
         </header>
@@ -152,6 +158,19 @@
       </div>
     </div>
 
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="logout-modal">
+      <div class="logout-modal-content">
+        <div class="logout-modal-icon">⚠️</div>
+        <h2>Confirm Logout</h2>
+        <p>Are you sure you want to logout?</p>
+        <div class="logout-modal-buttons">
+          <button class="logout-btn-cancel" id="cancelLogout">No</button>
+          <button class="logout-btn-confirm" id="confirmLogout">Yes</button>
+        </div>
+      </div>
+    </div>
+
     <!-- chatbot -->
     <div id="chat-toggle">?</div>
 
@@ -181,5 +200,6 @@
 
     <script src="user-profile.js"></script>
     <script src="chatbot.js"></script>
+    <script src="logout-modal.js"></script>
   </body>
 </html>

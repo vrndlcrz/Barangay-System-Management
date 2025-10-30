@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="user-officials.css" />
     <link rel="stylesheet" href="preloader.css" />
+    <link rel="stylesheet" href="logout-modal.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="chatbot.css" />
@@ -57,7 +58,12 @@
           <div class="time-and-logo">
             <p id="clock">12:00:00 AM</p>
             <a href="index.html">
-              <img src="images/logout.png" alt="logout" class="logout-logo" />
+              <img
+                src="images/logout.png"
+                alt="logout"
+                class="logout-logo"
+                id="logoutBtn"
+              />
             </a>
           </div>
           <div class="header-left">
@@ -125,6 +131,19 @@
       </div>
     </div>
 
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="logout-modal">
+      <div class="logout-modal-content">
+        <div class="logout-modal-icon">⚠️</div>
+        <h2>Confirm Logout</h2>
+        <p>Are you sure you want to logout?</p>
+        <div class="logout-modal-buttons">
+          <button class="logout-btn-cancel" id="cancelLogout">No</button>
+          <button class="logout-btn-confirm" id="confirmLogout">Yes</button>
+        </div>
+      </div>
+    </div>
+
     <!-- chatbot -->
     <div id="chat-toggle">?</div>
 
@@ -156,4 +175,5 @@
   <script src="preloader.js"></script>
   <script src="admin-dashboard.js"></script>
   <script src="chatbot.js"></script>
+  <script src="logout-modal.js"></script>
 </html>

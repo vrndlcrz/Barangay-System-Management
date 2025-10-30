@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="admin-residents.css" />
     <link rel="stylesheet" href="preloader.css" />
-    <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="logout-modal.css" />
     <title>Residents Information</title>
 
     <body>
@@ -50,7 +50,12 @@
         <div class="header">
           <div class="clock" id="clock">12:00:00 AM</div>
           <a href="index.html" class="logout-logo">
-            <img src="images/logout.png" alt="logout" class="logout-logo" />
+            <img
+              src="images/logout.png"
+              alt="logout"
+              class="logout-logo"
+              id="logoutBtn"
+            />
           </a>
         </div>
 
@@ -284,36 +289,22 @@
         </div>
       </div>
 
-      <!-- chatbot -->
-      <div id="chat-toggle">?</div>
-
-      <div id="chatbot">
-        <div id="chat-header">Help & FAQs</div>
-
-        <div id="chat-body"></div>
-
-        <div id="quick-questions">
-          <div class="quick-scroll">
-            <button class="quick-btn">How to request clearance?</button>
-            <button class="quick-btn">How to view my profile?</button>
-            <button class="quick-btn">How to see pending requests?</button>
-            <button class="quick-btn">How to logout?</button>
+      <!-- Logout Confirmation Modal -->
+      <div id="logoutModal" class="logout-modal">
+        <div class="logout-modal-content">
+          <div class="logout-modal-icon">⚠️</div>
+          <h2>Confirm Logout</h2>
+          <p>Are you sure you want to logout?</p>
+          <div class="logout-modal-buttons">
+            <button class="logout-btn-cancel" id="cancelLogout">No</button>
+            <button class="logout-btn-confirm" id="confirmLogout">Yes</button>
           </div>
         </div>
-
-        <div id="chat-input-area">
-          <input
-            id="chat-input"
-            type="text"
-            placeholder="Type your question..."
-          />
-          <button id="send-btn">➤</button>
-        </div>
       </div>
-
-      <script src="preloader.js"></script>
-      <script src="admin-dashboard.js"></script>
-      <script src="chatbot.js"></script>
     </body>
+    <script src="preloader.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="logout-modal.js"></script>
   </head>
 </html>
