@@ -36,6 +36,10 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
+.sidebar li a {
+  margin-bottom: 8px;
+}
+
 .barangay-logo {
   display: block;
   margin: 15px auto 15px;
@@ -57,7 +61,7 @@ body {
 }
 
 .nav li a {
-  margin: 0px;
+  margin: 0px 0px 8px 0px;
   display: flex;
   color: #fff;
   justify-content: start;
@@ -484,10 +488,9 @@ body {
   }
 }
 
-@media (max-width: 365px) {
+@media (max-width: 350px) {
   .sidebar {
-    width: 240px;
-    min-width: 240px;
+    width: 300px;
   }
 
   .burger-menu {
@@ -578,5 +581,11 @@ body {
   .edit-btn {
     font-size: 14px;
     padding: 7px 15px;
+  }
+}
+
+@media (max-width: 330px) {
+  .sidebar {
+    width: 280px;
   }
 }
