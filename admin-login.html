@@ -40,26 +40,65 @@
         </a>
 
         <div class="form-container">
-          <h1>Welcome!</h1>
-          <p class="subheader">Ready to manage your system? Sign in below.</p>
-          <h1 class="form-header">Username</h1>
-          <input type="text" placeholder="ex. John Doe" />
-          <h1 class="form-header">Password</h1>
-          <input type="password" placeholder="ex. Doe@123" />
-          <button
-            class="sign-in"
-            onclick="window.location.href='admin-dashboard.html'"
-          >
-            Sign In
-          </button>
-          <p class="forgot-password">
-            Forgot Password?
-            <a
-              href="#"
-              style="font-weight: 600; color: red; text-decoration: none"
-              >Talk Developer</a
+          <!-- LOGIN FORM -->
+          <div id="login-form" class="fade show">
+            <h1 class="welcome">Welcome!</h1>
+            <p class="subheader">Ready to manage your system? Sign in below.</p>
+
+            <h1 class="form-header">Username</h1>
+            <input type="text" placeholder="ex. John Doe" />
+
+            <h1 class="form-header">Password</h1>
+            <input type="password" placeholder="ex. Doe@123" />
+
+            <button
+              class="sign-in"
+              onclick="window.location.href='admin-dashboard.html'"
             >
-          </p>
+              Sign In
+            </button>
+
+            <p class="forgot-password">
+              Forgot Password?
+              <a
+                id="talkDeveloper"
+                style="font-weight: 600; color: red; cursor: pointer"
+                >Talk Developer</a
+              >
+            </p>
+          </div>
+
+          <div id="developer-form" class="fade" style="display: none">
+            <h1 class="welcome">Contact Developer</h1>
+            <p class="subheader">
+              Send your concern below and we will assist you.
+            </p>
+
+            <h1 class="form-header">Your Email</h1>
+            <input
+              type="email"
+              id="user_email"
+              placeholder="ex. youremail@gmail.com"
+            />
+
+            <h1 class="form-header">Message</h1>
+
+            <div class="message-box">
+              <textarea
+                id="user_message"
+                placeholder="Describe your issue..."
+              ></textarea>
+              <button id="sendEmail" class="send-btn">Send</button>
+            </div>
+
+            <button
+              class="sign-in"
+              id="backToLogin"
+              style="background: #21205d; margin-top: 20px; width: 90%"
+            >
+              Back to Login
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -76,6 +115,7 @@
     </div>
 
     <script src="user-login.js"></script>
+    <script src="admin-login.js"></script>
     <script src="preloader.js"></script>
   </body>
 </html>

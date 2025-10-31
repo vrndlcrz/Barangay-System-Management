@@ -67,6 +67,7 @@ h1 {
 }
 
 .right-heading {
+  color: #21205d;
   display: flex;
   flex-direction: column;
   font-size: 40px;

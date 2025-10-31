@@ -120,6 +120,12 @@ body {
   align-items: center;
 }
 
+.welcome {
+  color: #21205d;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
 .subheader {
   padding-bottom: 50px;
 }
@@ -169,6 +175,70 @@ input {
 
 .forgot-password {
   margin-top: 10px;
+}
+
+#forgotModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#forgotModal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+  color: #21205d;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 15px;
+  color: #444;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #21205d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.modal-content button:hover {
+  color: #f5fd12;
+}
+
+/* Modal Fade Animation */
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* BREAKPOINT 1: LARGE DESKTOP (1440px and above) */
@@ -395,8 +465,13 @@ input {
     height: 20px;
   }
 
+  .welcome {
+    font-size: 35px;
+  }
+
   .subheader {
-    padding: 0px 15px 25px 15px;
+    font-size: 13px;
+    padding: 0px 25px 40px 0px;
   }
 
   .form-header {

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <title>User Sign In</title>
@@ -27,9 +27,7 @@
           This is the official platform of Barangay 498, Zone 49, District IV,
           Manila, designed to streamline operations and enhance public service
           delivery. It provides a centralized system for requesting documents,
-          managing records, announcements, and community information. Through
-          this platform, the barangay upholds transparency, accountability, and
-          efficient communication with its constituents.
+          managing records, announcements, and community information.
         </p>
         <p class="footer">Where community service meets innovation.</p>
       </div>
@@ -39,42 +37,61 @@
           <img src="images/blueback-logo.png" alt="back-logo" />
         </a>
 
-        <div class="form-container">
-          <h1>Welcome!</h1>
+        <!-- login form -->
+        <div class="form-container" id="loginForm">
+          <h1 class="welcome">Welcome!</h1>
           <p class="subheader">
             Get instant access to everything you need right here.
           </p>
+
           <h1 class="form-header">Username</h1>
-          <input type="text" placeholder="ex. John Doe" />
+          <input type="text" placeholder="ex. John Doe" required />
+
           <h1 class="form-header">Password</h1>
-          <input type="password" placeholder="ex. Doe@123" />
+          <input type="password" placeholder="ex. Doe@123" required />
+
           <button
             class="sign-in"
             onclick="window.location.href='user-dashboard.html'"
           >
             Sign In
           </button>
-          <p class="forgot-password">
+
+          <p class="forgot-password" id="forgotPasswordBtn">
             Forgot Password?
-            <a
-              href="#"
-              style="font-weight: 600; color: red; text-decoration: none"
-              >Register</a
+            <span style="color: red; font-weight: 600; cursor: pointer"
+              >Register</span
             >
           </p>
+        </div>
         </div>
       </div>
     </div>
 
+    <!-- down btn -->
     <div class="down-arrow" id="scrollArrow">
       <svg viewBox="0 0 24 24">
         <path d="M12 5v14M19 12l-7 7-7-7" />
       </svg>
     </div>
 
+    <!-- preloader -->
     <div class="preloader" id="preloader">
       <div class="spinner"></div>
       <p>Loading...</p>
+    </div>
+
+    <!-- forgot pass modal -->
+    <div id="forgotModal">
+      <div class="modal-content">
+        <h2>Password Assistance</h2>
+        <p>
+          To recover your password, please visit the Barangay Hall in person and
+          bring a valid ID for verification.
+        </p>
+
+        <button id="closeForgotModal">Okay, I Understand</button>
+      </div>
     </div>
 
     <script src="user-login.js"></script>

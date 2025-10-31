@@ -58,6 +58,12 @@ body {
   min-height: 100vh;
 }
 
+.welcome {
+  color: #21205d;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
 .blueback-btn {
   position: absolute;
   width: 55px;
@@ -113,6 +119,59 @@ body {
   fill: none;
 }
 
+.message-box {
+  position: relative;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.message-box textarea {
+  width: 93%;
+  height: 130px;
+  border-radius: 12px;
+  border: none;
+  background: #d9d9d9;
+  padding: 15px 50px 15px 15px;
+  resize: none;
+  font-family: Poppins;
+  font-size: 14px;
+}
+
+.send-btn {
+  position: absolute;
+  right: -25px;
+  bottom: 20px;
+  width: 100px;
+  height: 38px;
+  border-radius: 5px;
+  background: #21205d;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.send-btn:hover {
+  background: #21205d;
+  transform: scale(1.05);
+}
+
+.send-btn:active {
+  scale: 0.95;
+}
+
+/* Smooth Fade Animation */
+.fade {
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+
+.fade.show {
+  transition: 0.2s ease-in-out;
+  opacity: 1;
+}
+
 .form-container {
   margin-top: 0px;
   display: flex;
@@ -156,6 +215,10 @@ input {
   border: none;
   cursor: pointer;
   text-decoration: none;
+}
+
+#backToLogin {
+  margin-top: 15px;
 }
 
 .sign-in:hover {
@@ -396,8 +459,13 @@ input {
     height: 20px;
   }
 
+  .welcome {
+    font-size: 35px;
+  }
+
   .subheader {
-    padding: 0px 25px 25px 0px;
+    font-size: 13px;
+    padding: 0px 25px 40px 0px;
   }
 
   .form-header {
