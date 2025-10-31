@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>User Form - Barangay Document Request</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="user-form.css" />
+    <link rel="stylesheet" href="preloader.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+    <!-- ================================================
+         MAIN CONTAINER
+         Contains sidebar and main form content
+    ================================================ -->
+    <div class="container">
+      <!-- ================================================
+             SIDEBAR - BREADCRUMB NAVIGATION
+             Steps 1-4 correspond to data-step attributes
+        ================================================ -->
+      <aside class="sidebar">
+        <img src="images/barangay-logo.png" alt="" class="barangay-logo" />
+        <h1>Barangay Management System</h1>
+
+        <nav class="sidebar-nav">
+          <ul class="nav-items">
+            <!-- Step 1: Personal Information -->
+            <li class="nav-item active" data-step="0">
+              <a href="#step1">
+                <span class="nav-item-icon"
+                  ><i class="fa-solid fa-person fa-2x"></i
+                ></span>
+                <span class="nav-item-text">Step 1: Information</span>
+              </a>
+            </li>
+
+            <!-- Step 2: Document Request -->
+            <li class="nav-item" data-step="1">
+              <a href="#step2">
+                <span class="nav-item-icon"
+                  ><i class="fa-solid fa-file fa-2x"></i
+                ></span>
+                <span class="nav-item-text"
+                  >Step 2: Document Request and Requirements</span
+                >
+              </a>
+            </li>
+
+            <!-- Step 3: Privacy Policy -->
+            <li class="nav-item" data-step="2">
+              <a href="#step3">
+                <span class="nav-item-icon"
+                  ><i class="fa-solid fa-shield-halved fa-2x"></i
+                ></span>
+                <span class="nav-item-text">Step 3: Data Privacy Policy</span>
+              </a>
+            </li>
+
+            <!-- Step 4: Preview & Submit -->
+            <li class="nav-item" data-step="3">
+              <a href="#step4">
+                <span class="nav-item-icon"
+                  ><i class="fa-solid fa-folder-open fa-2x"></i
+                ></span>
+                <span class="nav-item-text"
+                  >Step 4: Preview and Submit Request</span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ================================================
+             MAIN CONTENT - FORM AREA
+             Scrollable container for multi-step form
+        ================================================ -->
+      <main class="main-container">
+        <div class="form-wrapper">
+          <h1>REQUEST DOCUMENT FORM</h1>
+
+          <!-- Validation Alert Box (created dynamically by JS) -->
+          <div id="validationAlert" class="validation-alert"></div>
+
+          <form
+            id="documentRequestForm"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <!-- ==========================================
+                         STEP 1: PERSONAL INFORMATION
+                         Contains name, contact, birthdate, etc.
+                    =========================================== -->
+            <div class="section active" data-step="0">
+              <h2 class="section-title">PERSONAL INFORMATION</h2>
+
+              <!-- Row 1: Name Fields -->
+              <div class="form-row side-by-side">
+                <div class="form-group">
+                  <label>First Name <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="first_name"
+                    id="first_name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Middle Name <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="middle_name"
+                    id="middle_name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Last Name <span class="required">*</span></label>
+                  <input type="text" name="last_name" id="last_name" required />
+                </div>
+                <div class="form-group">
+                  <label>Suffix</label>
+                  <select id="suffix" name="suffix">
+                    <option value="">N/A</option>
+                    <option value="Jr.">Jr.</option>
+                    <option value="Sr.">Sr.</option>
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                    <option value="IV">IV</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Row 2: Contact & Birth Information -->
+              <div class="form-row side-by-side">
+                <div class="form-group">
+                  <label>Contact Number <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    id="contact_number"
+                    name="contact_number"
+                    onkeypress="return isNumberKey(event)"
+                    maxlength="11"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Date of Birth <span class="required">*</span></label>
+                  <input
+                    type="date"
+                    name="date_of_birth"
+                    id="date_of_birth"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Gender at Birth <span class="required">*</span></label>
+                  <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Place of Birth <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    id="place_of_birth"
+                    name="place_of_birth"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Permanent Address Section -->
+              <h2 class="section-title">PERMANENT ADDRESS</h2>
+
+              <!-- Row 3: Address Details -->
+              <div class="form-row side-by-side">
+                <div class="form-group">
+                  <label>Apartment/Unit/Building/Floor/etc.</label>
+                  <textarea name="apartment" id="apartment"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Street <span class="required">*</span></label>
+                  <input type="text" name="street" id="street" required />
+                </div>
+                <div class="form-group">
+                  <label>Barangay <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="barangay"
+                    id="barangay"
+                    value="Barangay 498"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Row 4: City, Province, Region -->
+              <div class="form-row side-by-side">
+                <div class="form-group">
+                  <label>City <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="city"
+                    id="city"
+                    value="Sampaloc"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Province <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="province"
+                    id="province"
+                    value="Manila"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Region <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="region"
+                    id="region"
+                    value="NCR - National Capital Region"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Row 5: Country & Zip Code -->
+              <div class="form-row side-by-side">
+                <div class="form-group">
+                  <label>Country <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="country"
+                    id="country"
+                    value="Philippines"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Zip Code <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    id="zip_code"
+                    name="zip_code"
+                    maxlength="4"
+                    value="1008"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- ==========================================
+                         STEP 2: DOCUMENT REQUEST & REQUIREMENTS
+                         Document type, purpose, uploads
+                    =========================================== -->
+            <div class="section" data-step="1">
+              <h2 class="section-title">DOCUMENT TO BE REQUESTED</h2>
+
+              <!-- Row 6: Document Type & Purpose -->
+              <div class="form-row side-by-side">
+                <div class="form-group">
+                  <label>Document Type <span class="required">*</span></label>
+                  <select name="document_type" id="document_type" required>
+                    <option value="">Select Document Type</option>
+                    <option value="Barangay Certificate">
+                      Barangay Certificate
+                    </option>
+                    <option value="Certificate of Indigency">
+                      Certificate of Indigency
+                    </option>
+                    <option value="Proof of Residency">
+                      Proof of Residency
+                    </option>
+                    <option value="Barangay Business Permit">
+                      Barangay Business Permit
+                    </option>
+                    <option value="Certificate to File Action">
+                      Certificate to File Action
+                    </option>
+                    <option value="Barangay ID">Barangay ID</option>
+                    <option value="First Time Job Seeker Certificate">
+                      First Time Job Seeker Certificate
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Purpose <span class="required">*</span></label>
+                  <textarea name="purpose" id="purpose" required></textarea>
+                </div>
+              </div>
+
+              <!-- Row 7: Quantity & Price -->
+              <div class="form-row side-by-side">
+                <div class="form-group">
+                  <label>Quantity <span class="required">*</span></label>
+                  <input
+                    type="number"
+                    name="quantity"
+                    id="quantity"
+                    min="1"
+                    value="1"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Price <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    id="price"
+                    name="price"
+                    value="₱50.00"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <!-- Document Requirements -->
+              <h2 class="section-title">DOCUMENT REQUIREMENTS</h2>
+
+              <!-- Row 8: File Uploads -->
+              <div class="form-row side-by-side">
+                <div class="form-group">
+                  <label
+                    >Photo/Selfie with any Valid ID
+                    <span class="required">*</span></label
+                  >
+                  <input
+                    type="file"
+                    name="selfie_with_id"
+                    id="selfie_with_id"
+                    accept="image/*"
+                    required
+                  />
+                  <span class="file-upload-hint"
+                    >Max file size: 5MB (JPG, PNG)</span
+                  >
+                </div>
+                <div class="form-group">
+                  <label>Picture of ID <span class="required">*</span></label>
+                  <input
+                    type="file"
+                    name="id_picture"
+                    id="id_picture"
+                    accept="image/*"
+                    required
+                  />
+                  <span class="file-upload-hint"
+                    >Max file size: 5MB (JPG, PNG)</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- ==========================================
+                         STEP 3: DATA PRIVACY POLICY
+                         Checkboxes for user agreements
+                    =========================================== -->
+            <div class="section" data-step="2">
+              <h2 class="section-title">DATA PRIVACY POLICY</h2>
+
+              <!-- Privacy Agreement Checkbox -->
+              <div class="checkbox-group">
+                <input
+                  type="checkbox"
+                  name="privacy_agreement"
+                  id="privacy_agreement"
+                  required
+                />
+                <label for="privacy_agreement" class="checkboxLabel">
+                  I have read and agree to the
+                  <a
+                    href="privacy-policy.html"
+                    target="_blank"
+                    class="policy-link"
+                    >Data Privacy Policy</a
+                  >
+                  agreement. I understand that the data I will be sending will
+                  be forwarded to Brgy. 498 Zone 49 Officials and will be used
+                  only for the purpose of what I mentioned above.
+                  <span class="required">*</span>
+                </label>
+              </div>
+
+              <!-- Claiming Guidelines Checkbox -->
+              <div class="checkbox-group">
+                <input type="checkbox" name="claiming" id="claiming" required />
+                <label for="claiming" class="checkboxLabel">
+                  I have read the procedures and guidelines in claiming my
+                  documents.
+                  <span class="required">*</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- ==========================================
+                         STEP 4: PREVIEW AND SUBMIT
+                         Final step - shows preview modal on "Done"
+                    =========================================== -->
+            <div class="section" data-step="3">
+              <h2 class="section-title">REVIEW YOUR INFORMATION</h2>
+              <p
+                style="
+                  font-size: 16px;
+                  color: #666;
+                  line-height: 1.8;
+                  margin: 20px 0;
+                "
+              >
+                You have completed all required steps. Click the
+                <strong>"Done"</strong> button below to review all your
+                information before final submission. You will be able to verify
+                all details in a preview window before confirming your document
+                request.
+              </p>
+              <div
+                style="
+                  background: #f0f7ff;
+                  padding: 20px;
+                  border-radius: 8px;
+                  border-left: 4px solid #21205d;
+                "
+              >
+                <p style="margin: 0; color: #333">
+                  <i
+                    class="fa-solid fa-info-circle"
+                    style="color: #21205d; margin-right: 10px"
+                  ></i>
+                  Please ensure all information is accurate before submitting.
+                  You can go back to any previous step to make changes if
+                  needed.
+                </p>
+              </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="buttons">
+              <div class="back-button">
+                <button
+                  onclick="window.location.href='user-request.html'"
+                  type="button"
+                  id="backBtn"
+                >
+                  Back
+                </button>
+              </div>
+              <button type="button" id="prevBtn">Previous</button>
+              <button type="button" id="nextBtn">Next</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <!-- ================================================
+         PREVIEW MODAL
+         Dynamically populated with form data
+    ================================================ -->
+    <div id="previewModal">
+      <div id="modalContent">
+        <!-- Content will be injected by JavaScript -->
+      </div>
+    </div>
+  </body>
+  <script src="user-form.js"></script>
+  <script src="preloader.js"></script>
+</html>

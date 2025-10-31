@@ -3,28 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="user-request.css" />
+    <link rel="stylesheet" href="chatbot.css" />
     <link rel="stylesheet" href="preloader.css" />
-    <link rel="stylesheet" href="logout-modal.css">
+    <link rel="stylesheet" href="logout-modal.css" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="chatbot.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
- 
-    <title>Request</title>
-  </head>
-  <body>
 
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Current Time Display -->
     <p id="current-time"></p>
 
+    <!-- Dashboard Container -->
     <div class="dashboard-container">
-      <button class="burger-menu" id="burgerMenu">☰</button>
-      
-      <!-- Sidebar -->
+      <!-- ========== SIDEBAR ========== -->
       <div class="sidebar">
         <img
           src="images/barangay-logo.png"
@@ -32,156 +40,857 @@
           class="barangay-logo"
         />
         <h1>Barangay Management System</h1>
+
         <nav class="menu">
           <ul class="menu-items">
+            <li><a href="user-dashboard.html">Dashboard</a></li>
             <li>
-              <a href="user-dashboard.html" class="dashboard-link">Dashboard</a>
+              <a href="user-request.html" class="active">Document Requests</a>
             </li>
-            <li><a href="user-request.html" class="active">Document Requests</a></li>
             <li><a href="user-announcement.html">Announcement</a></li>
             <li><a href="user-calendar.html">Calendar</a></li>
             <li><a href="user-profile.html">Profile</a></li>
-            <li><a href="user-officials.html">Officials</a></li>
-    
+            <li>
+              <a href="user-officials.html" class="officials-link">Officials</a>
+            </li>
           </ul>
         </nav>
       </div>
 
+      <!-- ========== PRELOADER ========== -->
       <div class="preloader" id="preloader">
         <div class="spinner"></div>
         <p>Loading...</p>
       </div>
 
-      <!-- Main Content -->
-       
-<div class="row auto">
-  <div class="right-content">
-    
-     <div class="main-container">
-      <div class="header">
-        <div class="header-left">
-          <h1>REQUEST FOR CERTIFICATES</h1>
-          <p> Here, you can request your documents!</p>
+      <!-- ========== MAIN CONTENT ========== -->
+      <div class="row auto">
+        <div class="right-content">
+          <button class="burger-menu" id="burgerMenu">☰</button>
+
+          <div class="main-container">
+            <!-- Header Section -->
+            <div class="header">
+              <div class="header-left">
+                <h1>REQUEST FOR CERTIFICATES</h1>
+                <p>Here, you can request your documents!</p>
+              </div>
+
+              <div class="header-right">
+                <p id="clock">12:00:00 AM</p>
+                <a href="index.html">
+                  <img
+                    src="images/logout.png"
+                    alt="logout"
+                    class="logout-logo"
+                    id="logoutBtn"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Content Header -->
+            <div class="content-container">
+              <div class="content-header">
+                <h2>Document Request Service</h2>
+              </div>
+            </div>
+
+            <!-- ========== CONTENT WRAPPER ========== -->
+            <div class="content-wrapper">
+              <!-- LEFT COLUMN - Information Dropdowns -->
+              <div class="left-column">
+                <!-- Certificates Available -->
+                <div
+                  class="dropdown"
+                  onclick="toggleDropdown('certificatesDropdown')"
+                >
+                  <div class="dropdowntitle">
+                    <span class="a">Certificates Available</span>
+                    <span class="drop-down icon">▼</span>
+                  </div>
+                </div>
+                <div class="dropdown-content" id="certificatesDropdown">
+                  <ul>
+                    <li>Barangay Certificate</li>
+                    <li>Certificate of Indigency</li>
+                    <li>Proof of Residency</li>
+                    <li>Local Employment</li>
+                    <li>Certificate to File Action</li>
+                    <li>Barangay Business Permit</li>
+                    <li>Barangay ID</li>
+                    <li>First Time Job Seeker Certificate</li>
+                  </ul>
+                </div>
+
+                <!-- Procedure -->
+                <div
+                  class="dropdown"
+                  onclick="toggleDropdown('procedureDropdown')"
+                >
+                  <div class="dropdowntitle">
+                    <span class="a">Procedure</span>
+                    <span class="drop-down icon">▼</span>
+                  </div>
+                </div>
+                <div class="dropdown-content" id="procedureDropdown">
+                  <ol>
+                    <li>
+                      Step 1: Fill out the request form with accurate
+                      information.
+                    </li>
+                    <li>Step 2: Submit the form and wait for confirmation.</li>
+                    <li>
+                      Step 3: Pay the required fees at the barangay office.
+                    </li>
+                    <li>
+                      Step 4: Wait for processing (usually takes 3-5 business
+                      days).
+                    </li>
+                    <li>
+                      Step 5: Pick up your document at the barangay office.
+                    </li>
+                  </ol>
+                </div>
+
+                <!-- Guidelines in Claiming -->
+                <div
+                  class="dropdown"
+                  onclick="toggleDropdown('claimingDropdown')"
+                >
+                  <div class="dropdowntitle">
+                    <span class="a"
+                      >Guidelines in Claiming Requested Documents</span
+                    >
+                    <span class="drop-down icon">▼</span>
+                  </div>
+                </div>
+                <div class="dropdown-content" id="claimingDropdown">
+                  <ul>
+                    <li>Bring a valid ID when claiming documents</li>
+                    <li>
+                      Documents can be claimed within 30 days from approval
+                    </li>
+                    <li>Claiming hours: 8:00 AM - 5:00 PM, Monday to Friday</li>
+                    <li>
+                      Authorized representatives must present authorization
+                      letter
+                    </li>
+                    <li>Processing time: 3-5 business days</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- End Left Column -->
+
+              <!-- RIGHT COLUMN - Quick Links -->
+              <div class="right-column">
+                <div class="quick-links">
+                  <h2>Quick Links</h2>
+
+                  <!-- Online Request -->
+                  <div class="right-item">
+                    <h3>
+                      <i class="fa-solid fa-circle"></i> Online Request of Brgy.
+                      Certificates
+                    </h3>
+                    <p>
+                      Request for a copy of your barangay certificate and other
+                      related certificates.
+                    </p>
+                    <button
+                      class="btn"
+                      onclick="window.open('user-form.html', '_blank')"
+                    >
+                      Request Now
+                    </button>
+                  </div>
+
+                  <!-- Track Documents -->
+                  <div class="right-item">
+                    <h3>
+                      <i class="fa-solid fa-circle"></i> Track Your Documents
+                    </h3>
+                    <p>
+                      Track your documents request / Upload additional
+                      requirements
+                    </p>
+                    <button
+                      class="btn"
+                      onclick="location.href='trackrequest.html'"
+                    >
+                      Track My Document
+                    </button>
+                  </div>
+
+                  <!-- FAQs -->
+                  <div class="right-item">
+                    <h3><i class="fa-solid fa-circle"></i> FAQs</h3>
+                    <p>
+                      Learn more about the frequently asked questions (FAQs)
+                      here.
+                    </p>
+                    <button class="btn" onclick="location.href='faq.html'">
+                      Learn More
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Right Column -->
+            </div>
+            <!-- End Content Wrapper -->
+          </div>
+          <!-- End Main Container -->
         </div>
-        <div class="header-right">
-          <div class="clock" id="clock">12:00:00 AM</div>
-          <a href="index.html" class="logout-logo">
-            <img src="images/logout.png" alt="logout" class="logout-logo" id="logoutBtn"/>
-          </a>
+        <!-- End Right Content -->
+      </div>
+      <!-- End Row Auto -->
+    </div>
+    <!-- End Dashboard Container -->
+
+    <!-- ========== REQUEST MODAL ========== -->
+    <div class="modal" id="requestModal">
+      <div class="modal-dialog">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3 class="modal-title" id="requestModalLabel">
+            REQUEST DOCUMENT FORM
+          </h3>
+          <button
+            type="button"
+            class="btn-close"
+            id="closeModalBtn"
+            aria-label="Close"
+          >
+            &times;
+          </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div id="alertBox" class="alert"></div>
+
+          <!-- Form Content -->
+          <div class="form-content" id="formContent">
+            <form
+              id="documentRequestForm"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <!-- ========== SECTION 1: PERSONAL INFORMATION ========== -->
+              <div class="section" id="section1">
+                <h2 class="section-title">PERSONAL INFORMATION</h2>
+
+                <!-- Row 1: Name Fields -->
+                <div class="form-row side-by-side" id="row1">
+                  <div class="form-group">
+                    <label>First Name <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      name="first_name"
+                      id="first_name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Middle Name <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      name="middle_name"
+                      id="middle_name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Last Name <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      name="last_name"
+                      id="last_name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Suffix</label>
+                    <select id="suffix" name="suffix-selection">
+                      <option value="" selected disabled>Select Suffix</option>
+                      <option value="">N/A</option>
+                      <option value="Jr.">Jr.</option>
+                      <option value="Sr.">Sr.</option>
+                      <option value="I">I</option>
+                      <option value="II">II</option>
+                      <option value="III">III</option>
+                      <option value="IV">IV</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Row 2: Contact, DOB, Gender, Place of Birth -->
+                <div class="form-row side-by-side" id="row2">
+                  <div class="form-group">
+                    <label
+                      >Contact Number <span class="required">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="contact_number"
+                      name="number"
+                      onkeypress="return isNumberKey(event)"
+                      maxlength="11"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Date of Birth <span class="required">*</span></label>
+                    <input
+                      type="date"
+                      name="date_of_birth"
+                      id="date_of_birth"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label
+                      >Gender at Birth <span class="required">*</span></label
+                    >
+                    <select id="gender" name="gender-selection" required>
+                      <option value="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label
+                      >Place of Birth <span class="required">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="place_of_birth-input"
+                      name="place_of_birth"
+                      list="place-suggestions"
+                      autocomplete="off"
+                    />
+                    <datalist id="place-suggestions">
+                      <!-- Metro Manila -->
+                      <option value="Manila, Metro Manila"></option>
+                      <option value="Quezon City, Metro Manila"></option>
+                      <option value="Caloocan, Metro Manila"></option>
+                      <option value="Las Piñas, Metro Manila"></option>
+                      <option value="Makati, Metro Manila"></option>
+                      <option value="Malabon, Metro Manila"></option>
+                      <option value="Mandaluyong, Metro Manila"></option>
+                      <option value="Marikina, Metro Manila"></option>
+                      <option value="Muntinlupa, Metro Manila"></option>
+                      <option value="Navotas, Metro Manila"></option>
+                      <option value="Parañaque, Metro Manila"></option>
+                      <option value="Pasay, Metro Manila"></option>
+                      <option value="Pasig, Metro Manila"></option>
+                      <option value="Pateros, Metro Manila"></option>
+                      <option value="San Juan, Metro Manila"></option>
+                      <option value="Taguig, Metro Manila"></option>
+                      <option value="Valenzuela, Metro Manila">
+                        <!-- Region I (Ilocos Region) -->
+                      </option>
+
+                      <option value="Alaminos, Pangasinan"></option>
+                      <option value="Batac, Ilocos Norte"></option>
+                      <option value="Candon, Ilocos Sur"></option>
+                      <option value="Laoag, Ilocos Norte"></option>
+                      <option value="San Carlos, Pangasinan"></option>
+                      <option value="San Fernando, La Union"></option>
+                      <option value="Urdaneta, Pangasinan"></option>
+                      <option value="Vigan, Ilocos Sur"></option>
+                      <option value="Dagupan, Pangasinan">
+                        <!-- Region II (Cagayan Valley) -->
+                      </option>
+
+                      <option value="Cauayan, Isabela"></option>
+                      <option value="Ilagan, Isabela"></option>
+                      <option value="Santiago, Isabela"></option>
+                      <option value="Tuguegarao, Cagayan">
+                        <!-- Region III (Central Luzon) -->
+                      </option>
+
+                      <option value="Angeles, Pampanga"></option>
+                      <option value="Balanga, Bataan"></option>
+                      <option value="Cabanatuan, Nueva Ecija"></option>
+                      <option value="Gapan, Nueva Ecija"></option>
+                      <option value="Mabalacat, Pampanga"></option>
+                      <option value="Malolos, Bulacan"></option>
+                      <option value="Meycauayan, Bulacan"></option>
+                      <option value="Muñoz, Nueva Ecija"></option>
+                      <option value="Olongapo, Zambales"></option>
+                      <option value="Palayan, Nueva Ecija"></option>
+                      <option value="San Fernando, Pampanga"></option>
+                      <option value="San Jose, Nueva Ecija"></option>
+                      <option value="San Jose del Monte, Bulacan"></option>
+                      <option value="Tarlac City, Tarlac">
+                        <!-- Region IV-A (CALABARZON) -->
+                      </option>
+
+                      <option value="Antipolo, Rizal"></option>
+                      <option value="Bacoor, Cavite"></option>
+                      <option value="Batangas City, Batangas"></option>
+                      <option value="Biñan, Laguna"></option>
+                      <option value="Cabuyao, Laguna"></option>
+                      <option value="Calamba, Laguna"></option>
+                      <option value="Cavite City, Cavite"></option>
+                      <option value="Dasmariñas, Cavite"></option>
+                      <option value="General Trias, Cavite"></option>
+                      <option value="Imus, Cavite"></option>
+                      <option value="Lipa, Batangas"></option>
+                      <option value="Lucena, Quezon"></option>
+                      <option value="San Pablo, Laguna"></option>
+                      <option value="San Pedro, Laguna"></option>
+                      <option value="Santa Rosa, Laguna"></option>
+                      <option value="Tagaytay, Cavite"></option>
+                      <option value="Tanauan, Batangas"></option>
+                      <option value="Trece Martires, Cavite">
+                        <!-- Region IV-B (MIMAROPA) -->
+                      </option>
+
+                      <option value="Calapan, Oriental Mindoro"></option>
+                      <option value="Puerto Princesa, Palawan">
+                        <!-- Region V (Bicol Region) -->
+                      </option>
+
+                      <option value="Iriga, Camarines Sur"></option>
+                      <option value="Legazpi, Albay"></option>
+                      <option value="Ligao, Albay"></option>
+                      <option value="Masbate City, Masbate"></option>
+                      <option value="Naga, Camarines Sur"></option>
+                      <option value="Sorsogon City, Sorsogon"></option>
+                      <option value="Tabaco, Albay">
+                        <!-- Region VI (Western Visayas) -->
+                      </option>
+
+                      <option value="Bacolod, Negros Occidental"></option>
+                      <option value="Bago, Negros Occidental"></option>
+                      <option value="Cadiz, Negros Occidental"></option>
+                      <option value="Escalante, Negros Occidental"></option>
+                      <option value="Himamaylan, Negros Occidental"></option>
+                      <option value="Iloilo City, Iloilo"></option>
+                      <option value="Kabankalan, Negros Occidental"></option>
+                      <option value="La Carlota, Negros Occidental"></option>
+                      <option value="Passi, Iloilo"></option>
+                      <option value="Roxas, Capiz"></option>
+                      <option value="Sagay, Negros Occidental"></option>
+                      <option value="San Carlos, Negros Occidental"></option>
+                      <option value="Silay, Negros Occidental"></option>
+                      <option value="Sipalay, Negros Occidental"></option>
+                      <option value="Talisay, Negros Occidental"></option>
+                      <option value="Victorias, Negros Occidental">
+                        <!-- Region VII (Central Visayas) -->
+                      </option>
+
+                      <option value="Bais, Negros Oriental"></option>
+                      <option value="Bayawan, Negros Oriental"></option>
+                      <option value="Bogo, Cebu"></option>
+                      <option value="Canlaon, Negros Oriental"></option>
+                      <option value="Carcar, Cebu"></option>
+                      <option value="Cebu City, Cebu"></option>
+                      <option value="Danao, Cebu"></option>
+                      <option value="Dumaguete, Negros Oriental"></option>
+                      <option value="Guihulngan, Negros Oriental"></option>
+                      <option value="Lapu-Lapu, Cebu"></option>
+                      <option value="Mandaue, Cebu"></option>
+                      <option value="Naga, Cebu"></option>
+                      <option value="Talisay, Cebu"></option>
+                      <option value="Tagbilaran, Bohol"></option>
+                      <option value="Tanjay, Negros Oriental"></option>
+                      <option value="Toledo, Cebu"></option>
+                      <option value="Tomohon, Cebu">
+                        <!-- Region VIII (Eastern Visayas) -->
+                      </option>
+
+                      <option value="Baybay, Leyte"></option>
+                      <option value="Borongan, Eastern Samar"></option>
+                      <option value="Calbayog, Samar"></option>
+                      <option value="Catbalogan, Samar"></option>
+                      <option value="Maasin, Southern Leyte"></option>
+                      <option value="Ormoc, Leyte"></option>
+                      <option value="Tacloban, Leyte">
+                        <!-- Region IX (Zamboanga Peninsula) -->
+                      </option>
+
+                      <option value="Dapitan, Zamboanga del Norte"></option>
+                      <option value="Dipolog, Zamboanga del Norte"></option>
+                      <option value="Isabela, Basilan"></option>
+                      <option value="Pagadian, Zamboanga del Sur"></option>
+                      <option value="Zamboanga City, Zamboanga del Sur">
+                        <!-- Region X (Northern Mindanao) -->
+                      </option>
+
+                      <option value="Cagayan de Oro, Misamis Oriental"></option>
+                      <option value="El Salvador, Misamis Oriental"></option>
+                      <option value="Gingoog, Misamis Oriental"></option>
+                      <option value="Iligan, Lanao del Norte"></option>
+                      <option value="Malaybalay, Bukidnon"></option>
+                      <option value="Oroquieta, Misamis Occidental"></option>
+                      <option value="Ozamiz, Misamis Occidental"></option>
+                      <option value="Tangub, Misamis Occidental"></option>
+                      <option value="Valencia, Bukidnon">
+                        <!-- Region XI (Davao Region) -->
+                      </option>
+
+                      <option value="Davao City, Davao del Sur"></option>
+                      <option value="Digos, Davao del Sur"></option>
+                      <option value="Mati, Davao Oriental"></option>
+                      <option value="Panabo, Davao del Norte"></option>
+                      <option value="Samal, Davao del Norte"></option>
+                      <option value="Tagum, Davao del Norte">
+                        <!-- Region XII (SOCCSKSARGEN) -->
+                      </option>
+
+                      <option value="Cotabato City, Maguindanao"></option>
+                      <option value="General Santos, South Cotabato"></option>
+                      <option value="Koronadal, South Cotabato"></option>
+                      <option value="Tacurong, Sultan Kudarat">
+                        <!-- Region XIII (Caraga) -->
+                      </option>
+
+                      <option value="Bayugan, Agusan del Sur"></option>
+                      <option value="Bislig, Surigao del Sur"></option>
+                      <option value="Butuan, Agusan del Norte"></option>
+                      <option value="Cabadbaran, Agusan del Norte"></option>
+                      <option value="Surigao City, Surigao del Norte"></option>
+                      <option value="Tandag, Surigao del Sur">
+                        <!-- CAR (Cordillera Administrative Region) -->
+                      </option>
+
+                      <option value="Baguio, Benguet"></option>
+                      <option value="Tabuk, Kalinga">
+                        <!-- BARMM (Bangsamoro Autonomous Region in Muslim Mindanao) -->
+                      </option>
+
+                      <option value="Lamitan, Basilan"></option>
+                      <option value="Marawi, Lanao del Sur"></option>
+                    </datalist>
+                  </div>
+                </div>
+              </div>
+              <!-- End Section 1: Personal Information -->
+
+              <!-- ========== SECTION 2: PERMANENT ADDRESS ========== -->
+              <div class="section" id="section2">
+                <h2 class="section-title">PERMANENT ADDRESS</h2>
+
+                <!-- Row 3: Apartment, Street, Barangay -->
+                <div class="form-row side-by-side" id="row3">
+                  <div class="form-group">
+                    <label>Apartment/Unit/Building/Floor/etc.</label>
+                    <textarea name="apartment" id="apartment"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Street <span class="required">*</span></label>
+                    <input type="text" name="street" id="street" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Barangay <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      name="barangay"
+                      id="barangay"
+                      value="Barangay 498"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Row 4: City, Province, Region -->
+                <div class="form-row side-by-side" id="row4">
+                  <div class="form-group">
+                    <label>City <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      name="city"
+                      id="city"
+                      value="Sampaloc City"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Province <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      name="province"
+                      id="province"
+                      value="Manila"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Region <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      id="region-input"
+                      name="region"
+                      list="region-suggestions"
+                      autocomplete="off"
+                      value="NCR - National Capital Region"
+                      required
+                    />
+                    <datalist id="region-suggestions">
+                      <option value="Region I - Ilocos Region"></option>
+                      <option value="Region II – Cagayan Valley"></option>
+                      <option value="Region III – Central Luzon"></option>
+                      <option value="Region IV-A – CALABARZON"></option>
+                      <option value="MIMAROPA Region"></option>
+                      <option value="Region V – Bicol Region"></option>
+                      <option value="Region VI – Western Visayas"></option>
+                      <option value="Region VII – Central Visayas"></option>
+                      <option value="Region VIII – Eastern Visayas"></option>
+                      <option value="Region IX – Zamboanga Peninsula"></option>
+                      <option value="Region X – Northern Mindanao"></option>
+                      <option value="Region XI – Davao Region"></option>
+                      <option value="Region XII – SOCCSKSARGEN"></option>
+                      <option value="Region XIII – Caraga"></option>
+                      <option value="NCR – National Capital Region"></option>
+                      <option
+                        value="CAR – Cordillera Administrative Region"
+                      ></option>
+                      <option
+                        value="BARMM – Bangsamoro Autonomous Region in Muslim Mindanao"
+                      ></option>
+                    </datalist>
+                  </div>
+                </div>
+
+                <!-- Row 5: Country, Zip Code -->
+                <div class="form-row side-by-side" id="row5">
+                  <div class="form-group">
+                    <label>Country <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      name="country"
+                      id="country"
+                      value="Philippines"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Zip Code <span class="required">*</span></label>
+                    <input
+                      type="text"
+                      id="zip_code"
+                      name="code"
+                      onkeypress="return isNumberKey(event)"
+                      maxlength="4"
+                      value="1008"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- End Section 2: Permanent Address -->
+
+              <!-- ========== SECTION 3: DOCUMENT TO BE REQUESTED ========== -->
+              <div class="section" id="section3">
+                <div class="section-title">DOCUMENT TO BE REQUESTED</div>
+
+                <!-- Row 6: Document Type, Purpose -->
+                <div class="form-row side-by-side" id="row6">
+                  <div class="form-group">
+                    <label>Document Type <span class="required">*</span></label>
+                    <select name="document_type" id="document_type" required>
+                      <option value="">Select Document Type</option>
+                      <option value="Barangay Certificate">
+                        Barangay Certificate
+                      </option>
+                      <option value="Certificate of Indigency">
+                        Certificate of Indigency
+                      </option>
+                      <option value="Proof of Residency">
+                        Proof of Residency
+                      </option>
+                      <option value="Barangay Business Permit">
+                        Barangay Business Permit
+                      </option>
+                      <option value="Certificate to File Action">
+                        Certificate to File Action
+                      </option>
+                      <option value="Barangay ID">Barangay ID</option>
+                      <option value="First Time Job Seeker Certificate">
+                        First Time Job Seeker Certificate
+                      </option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Purpose <span class="required">*</span></label>
+                    <textarea name="purpose" id="purpose" required></textarea>
+                  </div>
+                </div>
+
+                <!-- Row 7: Quantity, Price -->
+                <div class="form-row side-by-side" id="row7">
+                  <div class="form-group">
+                    <label>Quantity</label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      id="quantity"
+                      min="1"
+                      value="1"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="price"
+                      >Price <span class="required">*</span></label
+                    >
+                    <input type="text" id="price" name="price" readonly />
+                  </div>
+                </div>
+              </div>
+              <!-- End Section 3: Document to be Requested -->
+
+              <!-- ========== SECTION 4: DOCUMENT REQUIREMENTS ========== -->
+              <div class="section" id="section4">
+                <div class="section-title">DOCUMENT REQUIREMENTS</div>
+
+                <!-- Row 8: File Uploads -->
+                <div class="form-row side-by-side" id="row8">
+                  <div class="form-group">
+                    <label
+                      >Photo/Selfie with any Valid ID
+                      <span class="required">*</span></label
+                    >
+                    <input
+                      type="file"
+                      name="selfie_with_id"
+                      id="selfie_with_id"
+                      accept="image/*"
+                      required
+                    />
+                    <span class="file-upload-hint"
+                      >Max file size: 5MB (JPG, PNG, PDF)</span
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label>Picture of ID <span class="required">*</span></label>
+                    <input
+                      type="file"
+                      name="id_picture"
+                      id="id_picture"
+                      accept="image/*"
+                      required
+                    />
+                    <span class="file-upload-hint"
+                      >Max file size: 5MB (JPG, PNG, PDF)</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- End Section 4: Document Requirements -->
+
+              <!-- ========== SECTION 5: DATA PRIVACY POLICY ========== -->
+              <div class="section" id="section5">
+                <h2 class="section-title">DATA PRIVACY POLICY</h2>
+
+                <!-- Privacy Agreement Checkbox -->
+                <div class="checkbox-group">
+                  <input
+                    type="checkbox"
+                    name="privacy_agreement"
+                    id="privacy_agreement"
+                    required
+                  />
+                  <label for="privacy_agreement" class="checkboxLabel">
+                    I have read and agree to the
+                    <a
+                      href="privacy-policy.html"
+                      target="_blank"
+                      class="policy-link"
+                      >Data Privacy Policy</a
+                    >
+                    agreement. I understand that the data I will be sending will
+                    be forwarded to Brgy. 498 Zone 49 Officials and will be used
+                    only for the purpose of what I mentioned above.<span
+                      class="required"
+                      >*</span
+                    >
+                  </label>
+                </div>
+
+                <!-- Claiming Guidelines Checkbox -->
+                <div class="checkbox-group">
+                  <input
+                    type="checkbox"
+                    name="claiming"
+                    id="claiming"
+                    required
+                  />
+                  <label for="claiming" class="checkboxLabel">
+                    I have read the procedures and guidelines in
+                    <a class="guidelines-text">claiming</a> my documents.<span
+                      class="required"
+                      >*</span
+                    >
+                  </label>
+                </div>
+              </div>
+              <!-- End Section 5: Data Privacy Policy -->
+            </form>
+          </div>
+          <!-- End Form Content -->
+
+          <!-- Preview Content (Hidden by default) -->
+          <div class="preview-content" id="previewContent">
+            <div id="previewBody"></div>
+          </div>
+        </div>
+        <!-- End Modal Body -->
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <footer>
+            <button type="button" class="submit btn">Done - Preview</button>
+          </footer>
         </div>
       </div>
+      <!-- End Modal Dialog -->
+    </div>
+    <!-- End Request Modal -->
 
-      <div class="content-container">
-        <div class="content-header">
-          <h2>Document Request Service</h2>
+    <!-- ========== LOGOUT CONFIRMATION MODAL ========== -->
+    <div id="logoutModal" class="logout-modal">
+      <div class="logout-modal-content">
+        <div class="logout-modal-icon">⚠️</div>
+        <h2>Confirm Logout</h2>
+        <p>Are you sure you want to logout?</p>
+        <div class="logout-modal-buttons">
+          <button class="logout-btn-cancel" id="cancelLogout">No</button>
+          <button class="logout-btn-confirm" id="confirmLogout">Yes</button>
         </div>
       </div>
-      
+    </div>
 
-    <!-- Wrap both columns in a container -->
-    <div class="content-wrapper">
-      
-      <!-- LEFT COLUMN - Dropdowns -->
-      <div class="left-column">
-        <div class="dropdown" onclick="toggleDropdown('certificatesDropdown')">
+    <!-- ========== CHATBOT ========== -->
+    <!-- Chat Toggle Button -->
+    <div id="chat-toggle">?</div>
 
-          <div class="dropdowntitle">
-            <span class="a"> Certificates Available </span>
-          <span class="drop-down icon">▼</span></div>
-        </div>
-        
-        <div class="dropdown-content" id="certificatesDropdown">
-          <ul>
-            <li>Barangay Certificate</li>
-            <li>Certificate of Indigency</li>
-            <li>Proof of Residency</li>
-            <li>Local Employment</li>
-            <li>Certificate to File Action</li>
-            <li>Barangay Business Permit</li>
-            <li>Barangay ID</li>
-            <li>First Time Job Seeker Certificate</li>
-          </ul>
-        </div>
-        
-        <div class="dropdown" onclick="toggleDropdown('procedureDropdown')">
-          <div class="dropdowntitle">
-            <span class="a"> Procedure </span> <span class="drop-down icon">▼</span></div>
-          
-        </div>
-        <div class="dropdown-content" id="procedureDropdown">
-          <ol>
-            <li>Step 1: Fill out the request form with accurate information.</li>
-            <li>Step 2: Submit the form and wait for confirmation.</li>
-            <li>Step 3: Pay the required fees at the barangay office.</li>
-            <li>Step 4: Wait for processing (usually takes 3-5 business days).</li>
-            <li>Step 5: Pick up your document at the barangay office.</li>
-          </ol>
-        </div>
-
-        <div class="dropdown" onclick="toggleDropdown('claimingDropdown')">
-          <div class="dropdowntitle">
-            <span class="a"> Guidelines in Claiming Requested Documents </span> <span class="drop-down icon">▼</span></div>
-        </div>
-        <div class="dropdown-content" id="claimingDropdown">
-          <ul>
-            <li>Bring a valid ID when claiming documents</li>
-            <li>Documents can be claimed within 30 days from approval</li>
-            <li>Claiming hours: 8:00 AM - 5:00 PM, Monday to Friday</li>
-            <li>Authorized representatives must present authorization letter</li>
-            <li>Processing time: 3-5 business days</li>
-          </ul>
-        </div>
-      </div> 
-      
-      <!-- quick links naman -->
-      <div class="right-column">
-        <div class="quick-links"> 
-          <h2>Quick Links <i class="fa-solid fa-arrow-pointer"></i></h2>
-
-          <div class="right-item">
-            <h3><i class="fa-solid fa-circle"></i>    Online Request of Brgy. Certificates</h3>
-            <p>Request for a copy of your barangay certificate and other related certificates.</p>
-            <button class="btn" onclick="location.href='requestB.html'">Request Now</button>
-          </div>
-      
-          <div class="right-item">
-            <h3><i class="fa-solid fa-circle"></i> Track Your Documents</h3>
-            <p>Track your documents request / Upload additional requirements</p>
-            <button class="btn" onclick="location.href='trackrequest.html'">Track My Document</button>
-          </div>
-
-          <div class="right-item">
-            <h3><i class="fa-solid fa-circle"></i>   FAQs</h3>
-            <p>Learn more about the frequently asked questions (FAQs) here.</p>
-            <button class="btn" onclick="location.href='faq.html'">Learn More</button>
-          </div>
-        </div>
-      </div>
-    </div> 
-  </div>
-</div>
-
-<!-- Logout Confirmation Modal -->
-      <div id="logoutModal" class="logout-modal">
-        <div class="logout-modal-content">
-          <div class="logout-modal-icon">⚠️</div>
-          <h2>Confirm Logout</h2>
-          <p>Are you sure you want to logout?</p>
-          <div class="logout-modal-buttons">
-            <button class="logout-btn-cancel" id="cancelLogout">No</button>
-            <button class="logout-btn-confirm" id="confirmLogout">Yes</button>
-          </div>
-        </div>
-      </div>
-
-<!-- CHATBOT -->
- <div id="chat-toggle">?</div>
-
+    <!-- Chatbot Window -->
     <div id="chatbot">
+      <!-- Chat Header -->
       <div id="chat-header">Help & FAQs</div>
 
+      <!-- Chat Body -->
       <div id="chat-body"></div>
 
+      <!-- Quick Questions -->
       <div id="quick-questions">
         <div class="quick-scroll">
           <button class="quick-btn">How to request clearance?</button>
@@ -191,6 +900,7 @@
         </div>
       </div>
 
+      <!-- Chat Input Area -->
       <div id="chat-input-area">
         <input
           id="chat-input"
@@ -200,10 +910,12 @@
         <button id="send-btn">➤</button>
       </div>
     </div>
+    <!-- End Chatbot -->
 
-<script src="user-request.js"></script>
-<script src="chatbot.js"></script>
-<script src="preloader.js"></script>
-<script src="logout-modal.js"></script>
-</body>
+    <!-- ========== JAVASCRIPT FILES ========== -->
+    <script src="preloader.js"></script>
+    <script src="user-request.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="logout-modal.js"></script>
+  </body>
 </html>

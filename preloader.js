@@ -18,12 +18,25 @@ document.addEventListener("click", function (e) {
     return; // Don't show preloader for logout button
   }
 
-  if (
-    link &&
-    link.href &&
-    !link.href.startsWith("#") &&
-    link.target !== "_blank"
-  ) {
+  // Check if link exists and is a valid navigation link
+  if (link && link.href) {
+    const href = link.getAttribute("href");
+
+    // Don't show preloader for:
+    // - Hash links (e.g., #step1, #section2)
+    // - Links that open in new tab
+    // - JavaScript void links
+    // - Empty or null hrefs
+    if (
+      !href ||
+      href.startsWith("#") ||
+      href.startsWith("javascript:") ||
+      link.target === "_blank"
+    ) {
+      return; // Don't show preloader for these links
+    }
+
+    // Only show preloader for actual page navigation
     const preloader = document.getElementById("preloader");
     if (preloader) {
       preloader.classList.remove("hidden");
