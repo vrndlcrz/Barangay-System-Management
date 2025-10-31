@@ -229,7 +229,7 @@ input {
   color: #f5fd12;
 }
 
-/* Modal Fade Animation */
+/* modal animation */
 @keyframes fadeIn {
   from {
     transform: scale(0.95);
@@ -324,11 +324,11 @@ input {
     padding: 40px 30px;
     justify-content: center;
     gap: 30px;
-    min-height: 91vh;
+    min-height: 92vh;
   }
 
   .right-landingpage {
-    min-height: 90vh;
+    min-height: 92vh;
     padding: 50px 20px;
   }
 
@@ -365,7 +365,7 @@ input {
   .left-landingpage {
     padding: 35px 20px;
     gap: 25px;
-    min-height: 92vh;
+    min-height: 93vh;
     justify-content: center;
   }
 
@@ -431,9 +431,9 @@ input {
   }
 
   .right-landingpage {
-    min-height: 85vh;
+    min-height: 90vh;
     padding: 100px 12px 0px 12px;
-    justify-content: start;
+    justify-content: center;
   }
 
   .footer {
@@ -470,12 +470,16 @@ input {
   }
 
   .subheader {
-    font-size: 13px;
-    padding: 0px 25px 40px 0px;
+    font-size: 12px;
+    padding: 0px 0px 40px 0px;
   }
 
   .form-header {
     padding: 0px 20px;
+  }
+
+  .modal-content {
+    width: 270px;
   }
 
   input {

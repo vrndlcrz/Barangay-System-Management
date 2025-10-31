@@ -303,13 +303,13 @@ h1 {
   .left-landingpage {
     padding: 35px 20px;
     gap: 25px;
-    min-height: 92vh;
+    min-height: 93vh;
     max-height: none;
     justify-content: center;
   }
 
   .right-landingpage {
-    min-height: 90vh;
+    min-height: 93vh;
     padding: 35px 15px;
   }
 
@@ -383,8 +383,8 @@ h1 {
   }
 
   .right-landingpage {
-    justify-content: start;
-    min-height: 75vh;
+    justify-content: center;
+    min-height: 85vh;
     padding: 70px 12px;
   }
 
@@ -406,7 +406,8 @@ h1 {
   }
 
   .right-heading {
-    font-size: 20px;
+    font-size: 40px;
+    margin-bottom: 10px;
   }
 
   .right-sub {
