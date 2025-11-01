@@ -38,7 +38,7 @@ html {
   background-color: #21205d;
   color: white;
   width: 300px;
-  min-height: 100vh;
+  min-height: 100%;
   text-align: center;
   padding: 20px;
   z-index: 1000;
@@ -410,7 +410,7 @@ html {
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 240px;
+    width: 250px;
     transform: translateX(-100%);
     background-color: #21205d;
   }
@@ -433,7 +433,8 @@ html {
   }
 
   .right-content {
-    margin-left: 10px;
+    height: 100vh;
+    margin-left: 30px;
   }
 
   .header {
@@ -457,30 +458,123 @@ html {
   }
 }
 
-@media (max-width: 366px) {
-  .header h1 {
-    font-size: 1.2em;
-  }
-
-  .burger-menu {
-    left: 86%;
-    font-size: 28px;
-  }
-
+@media (max-width: 600px) {
   .sidebar {
-    width: 240px;
+    width: 250px;
+  }
+
+  .right-content {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .main-container {
+    padding: 0;
+    width: 100%;
+  }
+
+  .header {
+    padding: 20px 10px 0 10px;
+    margin-top: 50px;
+  }
+
+  .header-left h1 {
+    font-size: 16px;
+    margin-left: 0;
   }
 
   .header-left p {
-    font-size: 0.7em;
+    font-size: 12px;
+    margin-left: 0;
   }
 
-  .logout-logo {
-    width: 40px;
+  .header-right {
+    position: absolute;
+    top: 40px;
+    left: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .content-container {
+    padding: 10px;
+  }
+
+  .content-header {
+    font-size: 16px;
+    padding: 12px 15px;
+    margin: 0;
+  }
+
+  .content-header h2 {
+    font-size: 14px;
+  }
+
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0;
+    margin-top: 15px;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+    max-width: 100%;
   }
 
   .dropdown {
-    margin-bottom: 1px;
+    padding: 15px 20px;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .dropdown-content {
+    width: 100%;
+  }
+
+  .dropdown-content li {
+    font-size: 13px;
+  }
+
+  .quick-links {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    position: static;
+  }
+
+  .quick-links h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .right-item {
+    margin-bottom: 20px;
+  }
+
+  .right-item h3 {
+    font-size: 14px;
+  }
+
+  .right-item p {
+    font-size: 13px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sidebar {
+    width: 230px;
   }
 }
 
