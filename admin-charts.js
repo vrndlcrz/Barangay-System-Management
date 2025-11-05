@@ -1,6 +1,15 @@
-// helper functions
+// Register ChartDataLabels plugin
+Chart.register(ChartDataLabels);
+
+// Helper function to create charts
 function createChart(id, type, labels, data, backgroundColor, options = {}) {
-  return new Chart(document.getElementById(id), {
+  const canvas = document.getElementById(id);
+  if (!canvas) {
+    console.error(`Canvas with id "${id}" not found`);
+    return null;
+  }
+
+  return new Chart(canvas, {
     type,
     data: {
       labels,
@@ -10,7 +19,7 @@ function createChart(id, type, labels, data, backgroundColor, options = {}) {
           backgroundColor,
           borderColor: options.borderColor || undefined,
           label: options.label || "",
-          fill: options.fill || false,
+          fill: options.fill !== undefined ? options.fill : false,
           tension: options.tension || 0,
         },
       ],
@@ -18,29 +27,38 @@ function createChart(id, type, labels, data, backgroundColor, options = {}) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: options.padding || 20 },
+      layout: {
+        padding: options.padding !== undefined ? options.padding : 20,
+      },
       plugins: {
-        legend: { display: options.legend ?? false },
-        tooltip: { enabled: options.tooltip ?? true },
+        legend: {
+          display: options.legend !== undefined ? options.legend : false,
+        },
+        tooltip: {
+          enabled: options.tooltip !== undefined ? options.tooltip : true,
+        },
         datalabels: {
-          display: options.showDataLabels ?? true,
+          display:
+            options.showDataLabels !== undefined
+              ? options.showDataLabels
+              : true,
           color: options.labelColor || "white",
-          font: { weight: "bold", size: options.labelSize || 14 },
+          font: {
+            weight: "bold",
+            size: options.labelSize || 14,
+          },
           formatter: options.labelFormatter || ((v) => v),
-          anchor: options.anchor || undefined,
-          align: options.align || undefined,
+          anchor: options.anchor || "center",
+          align: options.align || "center",
         },
       },
       scales: options.scales || undefined,
       cutout: options.cutout || undefined,
     },
-    plugins: [ChartDataLabels],
   });
 }
 
-// Charts
-
-// Demographics
+// Demographics Chart
 createChart(
   "demographicsChart",
   "pie",
@@ -52,29 +70,39 @@ createChart(
       const total = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
       return ((value / total) * 100).toFixed(1) + " %";
     },
+    labelSize: 14,
   }
 );
 
-// Document Requests
+// Document Requests Chart
 createChart(
   "documentChart",
   "bar",
   ["Clearance", "Certificate", "Indigency"],
   [45, 22, 48],
-  ["#001D39", "#0A4174", "#49769F", "#4E8EA2"],
+  ["#001D39", "#0A4174", "#49769F"],
   {
     labelColor: "#21205d",
     labelSize: 12,
     anchor: "end",
     align: "top",
+    padding: {
+      top: 20,
+      bottom: 5,
+      left: 10,
+      right: 10,
+    },
     scales: {
-      y: { display: true, beginAtZero: true },
+      y: {
+        display: false,
+        beginAtZero: true,
+      },
       x: {
         ticks: {
           autoSkip: false,
           color: "#21205d",
-          font: { size: 12, weight: "normal" },
-          padding: 10,
+          font: { size: 11, weight: "normal" },
+          padding: 5,
         },
         grid: {
           display: false,
@@ -84,7 +112,7 @@ createChart(
   }
 );
 
-// Pending Applications
+// Pending Applications Chart
 createChart(
   "pendingChart",
   "doughnut",
@@ -93,33 +121,45 @@ createChart(
   ["#001D39", "#49769F"],
   {
     labelSize: 16,
-    cutout: "30%",
+    cutout: "60%",
   }
 );
 
-// Cancelled Requests
+// Cancelled Requests Chart
 createChart(
   "cancelledChart",
   "bar",
   ["Jan", "Feb", "Mar", "Apr"],
   [5, 3, 7, 4],
-  ["#0A4174", "#001D39", "#49769F"],
+  ["#0A4174", "#0A4174", "#0A4174", "#0A4174"],
   {
     labelColor: "#21205d",
     labelSize: 12,
     anchor: "end",
     align: "top",
+    padding: {
+      top: 20,
+      bottom: 5,
+      left: 10,
+      right: 10,
+    },
     scales: {
-      y: { display: true, beginAtZero: true },
+      y: {
+        display: false,
+        beginAtZero: true,
+      },
       x: {
-        ticks: { font: { size: 12 } },
+        ticks: {
+          font: { size: 11 },
+          color: "#21205d",
+        },
         grid: { display: false },
       },
     },
   }
 );
 
-// Completed Requests
+// Completed Requests Chart
 createChart(
   "completedChart",
   "line",
@@ -131,6 +171,12 @@ createChart(
     fill: true,
     tension: 0.3,
     showDataLabels: false,
+    padding: {
+      top: 20,
+      bottom: 10,
+      left: 10,
+      right: 10,
+    },
     scales: {
       y: {
         beginAtZero: true,
